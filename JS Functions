@@ -1,0 +1,21 @@
+// Many ways to make functions in JS:
+
+// 1. Function Declaration
+function add(a, b) {
+    return a + b;
+}
+
+// 2. A function declaration does not ask the code inside the function body to run, it just declares the existence of the function.
+// To run the code inside the function body, you need to call the function:
+let sum1 = add(2, 3); // sum1 is 5
+
+// 3. Function Parameters and Arguments
+// Parameters are the names listed in the function definition. In the example above, a and b are parameters.
+// Arguments are the real values passed to the function when it is called. In the example above, 2 and 3 are arguments.
+
+// For example:
+function sayThanks(name) {
+  console.log('Thank you for your purchase, '+ name +'! We appreciate your business.');
+}
+
+sayThanks('Cole');
