@@ -1,10 +1,11 @@
 const getUserChoice = userInput => {
   userInput = userInput.toLowerCase(userInput);
-  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
+  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
     return userInput
   } else {
     return console.log('Invalid Entry');
   }
+  console.log(userInput);
 }
 
 function getComputerChoice () {
@@ -19,9 +20,6 @@ function getComputerChoice () {
     return 'scissors';
   }
 }
-
-console.log(getComputerChoice());
-
 
 function determineWinner(userChoice, computerChoice) {
   if (userChoice === computerChoice)
@@ -50,5 +48,18 @@ function determineWinner(userChoice, computerChoice) {
       return 'The user won!'
     }
   }
+  if (userChoice === 'bomb') {
+    return 'The user won!'
+  }
 }
-console.log(determineWinner())
+
+function playGame() {
+  let userChoice = getUserChoice('bomb')
+  let computerChoice = getComputerChoice();
+  console.log(userChoice);
+  console.log(computerChoice);
+
+  console.log(determineWinner(userChoice, computerChoice));
+}
+
+playGame();
