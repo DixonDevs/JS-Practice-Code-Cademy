@@ -8,22 +8,52 @@ function getSleepHours(day) {
 day = day.toLowerCase();
 
   if (day === 'monday') {
-    return hoursSlept
+    return 8
   } else if (day === 'tuesday') {
-    return hoursSlept
+    return 9
   } else if (day === 'wednesday') {
-    return hoursSlept
+    return 7
   } else if (day === 'thursday') {
-    return hoursSlept
+    return 6
   } else if (day === 'friday') {
-    return hoursSlept
+    return 8
   } else if (day === 'saturday') {
-    return hoursSlept
+    return 8
   } else if (day === 'sunday') {
-    return hoursSlept
+    return 5
   } else {
     return 'Error! Please enter a valid day.'
   }
 }
 
-console.log(getSleepHours('aff'))
+function getActualSleepHours () {
+  let totalSleepHours = getSleepHours('monday') + getSleepHours('tuesday') + getSleepHours('wednesday') + getSleepHours('thursday') + getSleepHours('friday') + getSleepHours('saturday') + getSleepHours('sunday');
+
+  return totalSleepHours;
+}
+
+getActualSleepHours();
+
+function getIdealSleepHours () {
+  let idealHours = 8;
+
+  return idealHours * 7;
+}
+
+function calculateSleepDebt () {
+  let actualSleepHours = getActualSleepHours();
+  let idealSleepHours = getIdealSleepHours();
+  let sleepDifference = 0;
+  if (actualSleepHours === idealSleepHours) {
+    console.log('You got the perfect amount of sleep!');
+  } else if (actualSleepHours > idealSleepHours) {
+    sleepDifference = actualSleepHours - idealSleepHours;
+    console.log(`You got ${sleepDifference} more hours of sleep than needed!`);
+  } else if (actualSleepHours < idealSleepHours) {
+    sleepDifference = idealSleepHours - actualSleepHours;
+    console.log(`You got ${sleepDifference} less hours of sleep than needed!`);
+  } else {
+    console.log('An error occurred');
+  }
+}
+
